@@ -1,6 +1,7 @@
 export default function reducer(state = {
-  authenticating: false,
-  user: null
+  authenticated: false,
+  userId: null,
+  email: null
 }, action) {
 
   switch (action.type) {
@@ -19,7 +20,12 @@ export default function reducer(state = {
     // }
       
     case "USER_AUTH_SUCCESS": {
-      return {...state, user: action.payload}
+      return {
+        ...state,
+        authenticated:true,
+        userId: action.payload.uid,
+        email: action.payload.email,
+      }
     }
   }
 

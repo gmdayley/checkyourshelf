@@ -1,5 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
+import {authUser} from "../actions/authActions"
 
 @connect((store) => {
   return {
@@ -8,15 +9,15 @@ import {connect} from "react-redux"
     // tweets: store.tweets.tweets,
   };
 })
-export default class Layout extends React.Component {
+export default class Login extends React.Component {
+  login() {
+    this.props.dispatch(authUser());
+  }
+
   render() {
-    console.log('Render app');
     return (
       <div>
-        <h1>App</h1>
-        <div>
-          {this.props.children}
-        </div>
+        <button onClick={this.login.bind(this)}>Login</button>
       </div>
     )
   }

@@ -1,3 +1,5 @@
+import { browserHistory } from 'react-router';
+
 export function authUser() {
   return function(dispatch) {
     dispatch({type: "USER_AUTH"});
@@ -8,10 +10,10 @@ export function authUser() {
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
-      
-      
+
+      browserHistory.push('/inventory');
+
       dispatch({type: "USER_AUTH_SUCCESS", payload: user});
-      
       // ...
     }).catch(function (error) {
       // Handle Errors here.

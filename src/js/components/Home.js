@@ -15,7 +15,7 @@ import { authUser } from "../actions/authActions"
 })
 export default class Layout extends React.Component {
   componentWillMount() {
-    this.props.dispatch(authUser());
+    // this.props.dispatch(authUser());
     // this.props.dispatch(fetchUser());
     // this.props.dispatch(loadAndListen());
   }
@@ -25,17 +25,18 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { user, tweets } = this.props;
-
-    if (!tweets.length) {
-      return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>
-    }
-
-    const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
+    // const { user, tweets } = this.props;
+    //
+    // if (!tweets.length) {
+    //   return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>
+    // }
+    //
+    // const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
 
     return <div>
-      <h1>{user.name}</h1>
-      <ul>{mappedTweets}</ul>
+      Home
+      {/*<h1>{user.name}</h1>*/}
+      {/*<ul>{mappedTweets}</ul>*/}
     </div>
   }
 }
